@@ -18,39 +18,39 @@ import { showSuccess } from '@/utils/toast';
 const MOCK_PROPERTIES = [
   {
     id: '1',
-    title: 'Cobertura Duplex no Jardins',
-    price: 'R$ 4.500.000',
-    location: 'Jardins, São Paulo',
+    title: 'Casa de Luxo em Jardim Primavera',
+    price: 'R$ 1.250.000',
+    location: 'Jardim Primavera, Duque de Caxias - RJ',
     beds: 4,
-    baths: 5,
-    area: 320,
+    baths: 3,
+    area: 250,
     images: [
-      'https://images.unsplash.com/photo-1600607687940-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1600566753190-17f0bb2a6c3e?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1200',
       'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200'
     ],
     type: 'Venda' as const,
     financing: true,
-    description: 'Exclusiva cobertura duplex totalmente reformada no coração dos Jardins. Com acabamentos de altíssimo padrão, automação residencial completa e uma vista panorâmica de tirar o fôlego. O imóvel conta com amplo living para 3 ambientes, cozinha gourmet integrada e área externa privativa com piscina aquecida.',
-    features: ['Piscina Privativa', 'Automação', '4 Vagas', 'Depósito', 'Ar Condicionado']
+    description: 'Espetacular casa linear em um dos bairros mais valorizados de Duque de Caxias. Com acabamento de primeira linha, porcelanato em todos os cômodos e uma área de lazer privativa com piscina e churrasqueira. Localizada em rua tranquila e segura, próxima a comércios e vias de acesso.',
+    features: ['Piscina', 'Área Gourmet', 'Garagem para 3 carros', 'Suíte Master', 'Cozinha Planejada']
   },
   {
     id: '2',
-    title: 'Casa Contemporânea Alphaville',
-    price: 'R$ 3.200.000',
-    location: 'Alphaville, Barueri',
+    title: 'Mansão Exclusiva em Xerém',
+    price: 'R$ 2.800.000',
+    location: 'Xerém, Duque de Caxias - RJ',
     beds: 5,
     baths: 6,
-    area: 450,
+    area: 600,
     images: [
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=1200',
       'https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&q=80&w=1200'
     ],
     type: 'Venda' as const,
     financing: true,
-    description: 'Projeto arquitetônico moderno com integração total entre os ambientes. Localizada em um dos condomínios mais seguros de Alphaville, esta residência oferece conforto e sofisticação. Pé direito duplo, iluminação natural abundante e área de lazer completa com espaço gourmet e jardim planejado.',
-    features: ['Espaço Gourmet', 'Jardim', 'Escritório', 'Suíte Master', 'Energia Solar']
+    description: 'Propriedade cinematográfica em Xerém, cercada por muito verde e tranquilidade. Projeto arquitetônico moderno com integração total entre os ambientes. Ideal para quem busca exclusividade, conforto e contato com a natureza sem abrir mão da sofisticação.',
+    features: ['Campo de Futebol', 'Sauna', 'Casa de Hóspedes', 'Pomar', 'Segurança 24h']
   }
 ];
 
@@ -190,7 +190,7 @@ const PropertyDetail = () => {
                 <div className="mt-8 pt-8 border-t border-slate-100">
                   <p className="text-sm text-center text-muted-foreground mb-6 uppercase tracking-widest">Atendimento Imediato</p>
                   <Button variant="outline" className="w-full h-16 rounded-2xl border-green-500 text-green-600 hover:bg-green-50 gap-3 text-lg font-bold" onClick={() => window.open('https://wa.me/5511999999999', '_blank')}>
-                    <Phone size={24} /> (11) 99999-9999
+                    <Phone size={24} /> (21) 99999-9999
                   </Button>
                 </div>
               </CardContent>
