@@ -7,6 +7,8 @@ import PropertyCard from '@/components/PropertyCard';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Search, ArrowRight, Star, ShieldCheck, Clock } from 'lucide-react';
+import { showSuccess } from '@/utils/toast';
+import { useNavigate } from 'react-router-dom';
 
 const MOCK_PROPERTIES = [
   {
@@ -18,7 +20,8 @@ const MOCK_PROPERTIES = [
     baths: 5,
     area: 320,
     image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800',
-    type: 'Venda' as const
+    type: 'Venda' as const,
+    financing: true
   },
   {
     id: '2',
@@ -29,7 +32,8 @@ const MOCK_PROPERTIES = [
     baths: 6,
     area: 450,
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800',
-    type: 'Venda' as const
+    type: 'Venda' as const,
+    financing: true
   },
   {
     id: '3',
@@ -40,7 +44,8 @@ const MOCK_PROPERTIES = [
     baths: 3,
     area: 180,
     image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=800',
-    type: 'Aluguel' as const
+    type: 'Aluguel' as const,
+    financing: false
   },
   {
     id: '4',
@@ -51,11 +56,14 @@ const MOCK_PROPERTIES = [
     baths: 8,
     area: 720,
     image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800',
-    type: 'Venda' as const
+    type: 'Venda' as const,
+    financing: true
   }
 ];
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -92,7 +100,7 @@ const Index = () => {
                 <option>Apartamento</option>
                 <option>Terreno</option>
               </select>
-              <Button className="h-14 rounded-xl text-lg font-bold gap-2">
+              <Button className="h-14 rounded-xl text-lg font-bold gap-2" onClick={() => navigate('/imoveis')}>
                 <Search size={20} /> Buscar
               </Button>
             </div>
@@ -137,7 +145,7 @@ const Index = () => {
               <h2 className="text-3xl md:text-4xl font-black text-primary mb-4">Imóveis em Destaque</h2>
               <p className="text-muted-foreground">As melhores oportunidades selecionadas para você.</p>
             </div>
-            <Button variant="outline" className="hidden md:flex gap-2 rounded-full">
+            <Button variant="outline" className="hidden md:flex gap-2 rounded-full" onClick={() => navigate('/imoveis')}>
               Ver todos <ArrowRight size={16} />
             </Button>
           </div>
@@ -146,12 +154,6 @@ const Index = () => {
             {MOCK_PROPERTIES.map((prop) => (
               <PropertyCard key={prop.id} {...prop} />
             ))}
-          </div>
-          
-          <div className="mt-12 text-center md:hidden">
-            <Button variant="outline" className="w-full gap-2 rounded-xl">
-              Ver todos os imóveis <ArrowRight size={16} />
-            </Button>
           </div>
         </div>
       </section>
@@ -163,7 +165,7 @@ const Index = () => {
           <p className="text-xl text-primary-foreground/80 mb-12 max-w-2xl mx-auto">
             Anuncie com quem entende do mercado de luxo e alcance os compradores certos com Thiago Lopes.
           </p>
-          <Button size="lg" variant="secondary" className="rounded-full px-12 h-16 text-lg font-bold">
+          <Button size="lg" variant="secondary" className="rounded-full px-12 h-16 text-lg font-bold" onClick={() => showSuccess("Iniciando processo de anúncio...")}>
             Falar com um Especialista
           </Button>
         </div>

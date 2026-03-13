@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Bed, Bath, Square, MapPin } from 'lucide-react';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Bed, Bath, Square, MapPin, CheckCircle2, XCircle } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 interface PropertyProps {
@@ -16,9 +16,10 @@ interface PropertyProps {
   area: number;
   image: string;
   type: 'Venda' | 'Aluguel';
+  financing: boolean;
 }
 
-const PropertyCard = ({ id, title, price, location, beds, baths, area, image, type }: PropertyProps) => {
+const PropertyCard = ({ id, title, price, location, beds, baths, area, image, type, financing }: PropertyProps) => {
   return (
     <Link to={`/imovel/${id}`}>
       <Card className="overflow-hidden group hover:shadow-xl transition-all duration-300 border-none bg-card/50 backdrop-blur-sm">
@@ -28,9 +29,15 @@ const PropertyCard = ({ id, title, price, location, beds, baths, area, image, ty
             alt={title} 
             className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
           />
-          <Badge className="absolute top-4 left-4 bg-primary/90 backdrop-blur-md border-none px-3 py-1">
-            {type}
-          </Badge>
+          <div className="absolute top-4 left-4 flex flex-col gap-2">
+            <Badge className="bg-primary/90 backdrop-blur-md border-none px-3 py-1">
+              {type}
+            </Badge>
+            <Badge variant={financing ? "secondary" : "destructive"} className="backdrop-blur-md border-none px-3 py-1 flex items-center gap-1">
+              {financing ? <CheckCircle2 size={12} /> : <XCircle size={12} />}
+              {financing ? "Aceita Financiamento" : "Somente à Vista"}
+            </Badge>
+          </div>
         </div>
         <CardContent className="p-5">
           <div className="flex items-center text-muted-foreground text-xs mb-2">
