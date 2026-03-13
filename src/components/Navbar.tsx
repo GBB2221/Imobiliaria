@@ -20,7 +20,7 @@ const Navbar = () => {
           </div>
           <div className="flex flex-col">
             <span className="text-xl font-bold tracking-tight text-primary">THIAGO LOPES</span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Imobiliária de Luxo</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">seu imóvel começa aqui!</span>
           </div>
         </Link>
 
