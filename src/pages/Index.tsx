@@ -68,8 +68,8 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Otimizada para Mobile e Desktop */}
+      <section className="relative min-h-[80vh] md:h-[85vh] flex items-center justify-center overflow-hidden py-20 md:py-0">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1600566753190-17f0bb2a6c3e?auto=format&fit=crop&q=80&w=2000" 
@@ -79,29 +79,31 @@ const Index = () => {
         </div>
         
         <div className="container mx-auto px-4 relative z-10 text-center text-white">
-          <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight">
-            Seu novo lar em <br />
-            <span className="text-primary-foreground bg-primary px-4 rounded-lg">Duque de Caxias</span>
+          <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight leading-tight">
+            Seu novo lar em <br className="hidden md:block" />
+            <span className="text-primary-foreground bg-primary px-4 rounded-lg inline-block mt-2 md:mt-0">Duque de Caxias</span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-200 mb-12 max-w-2xl mx-auto font-light">
+          <p className="text-lg md:text-2xl text-slate-200 mb-10 max-w-2xl mx-auto font-light px-4">
             Thiago Lopes oferece as melhores oportunidades de investimento e moradia na Baixada Fluminense.
           </p>
           
-          <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-xl p-4 rounded-2xl border border-white/20 shadow-2xl">
+          <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-xl p-4 md:p-6 rounded-3xl border border-white/20 shadow-2xl mx-4">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div className="md:col-span-2">
                 <Input 
-                  placeholder="Bairro (Jardim Primavera, Xerém, Centro...)" 
-                  className="bg-white/90 text-slate-900 h-14 rounded-xl border-none focus-visible:ring-primary"
+                  placeholder="Bairro (Jardim Primavera, Xerém...)" 
+                  className="bg-white/90 text-slate-900 h-14 rounded-2xl border-none focus-visible:ring-primary text-base"
                 />
               </div>
-              <select className="bg-white/90 text-slate-900 h-14 rounded-xl px-4 outline-none focus:ring-2 focus:ring-primary">
-                <option>Tipo de Imóvel</option>
-                <option>Casa</option>
-                <option>Apartamento</option>
-                <option>Terreno</option>
-              </select>
-              <Button className="h-14 rounded-xl text-lg font-bold gap-2" onClick={() => navigate('/imoveis')}>
+              <div className="relative">
+                <select className="w-full bg-white/90 text-slate-900 h-14 rounded-2xl px-4 outline-none focus:ring-2 focus:ring-primary appearance-none cursor-pointer text-base">
+                  <option>Tipo de Imóvel</option>
+                  <option>Casa</option>
+                  <option>Apartamento</option>
+                  <option>Terreno</option>
+                </select>
+              </div>
+              <Button className="h-14 rounded-2xl text-lg font-bold gap-2 w-full" onClick={() => navigate('/imoveis')}>
                 <Search size={20} /> Buscar
               </Button>
             </div>
@@ -109,49 +111,49 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-24 bg-slate-50">
+      {/* Features - Grid Responsivo */}
+      <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="flex flex-col items-center text-center space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-12">
+            <div className="flex flex-col items-center text-center space-y-4 p-6 bg-white rounded-3xl shadow-sm">
               <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
                 <ShieldCheck size={32} />
               </div>
               <h3 className="text-xl font-bold">Segurança Jurídica</h3>
-              <p className="text-muted-foreground">Especialista no mercado de Caxias, garantindo transações seguras e transparentes.</p>
+              <p className="text-muted-foreground text-sm md:text-base">Especialista no mercado de Caxias, garantindo transações seguras e transparentes.</p>
             </div>
-            <div className="flex flex-col items-center text-center space-y-4">
+            <div className="flex flex-col items-center text-center space-y-4 p-6 bg-white rounded-3xl shadow-sm">
               <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
                 <Star size={32} />
               </div>
               <h3 className="text-xl font-bold">Oportunidades Únicas</h3>
-              <p className="text-muted-foreground">Acesso antecipado aos melhores lançamentos e revendas da região.</p>
+              <p className="text-muted-foreground text-sm md:text-base">Acesso antecipado aos melhores lançamentos e revendas da região.</p>
             </div>
-            <div className="flex flex-col items-center text-center space-y-4">
+            <div className="flex flex-col items-center text-center space-y-4 p-6 bg-white rounded-3xl shadow-sm sm:col-span-2 md:col-span-1">
               <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
                 <Clock size={32} />
               </div>
               <h3 className="text-xl font-bold">Agilidade no Processo</h3>
-              <p className="text-muted-foreground">Aprovação de crédito e documentação com rapidez e eficiência.</p>
+              <p className="text-muted-foreground text-sm md:text-base">Aprovação de crédito e documentação com rapidez e eficiência.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured Properties */}
-      <section className="py-24">
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-end mb-12">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
             <div>
-              <h2 className="text-3xl md:text-4xl font-black text-primary mb-4">Destaques em Caxias</h2>
+              <h2 className="text-3xl md:text-4xl font-black text-primary mb-2">Destaques em Caxias</h2>
               <p className="text-muted-foreground">Confira nossa seleção exclusiva na cidade.</p>
             </div>
-            <Button variant="outline" className="hidden md:flex gap-2 rounded-full" onClick={() => navigate('/imoveis')}>
+            <Button variant="outline" className="flex gap-2 rounded-full w-full md:w-auto" onClick={() => navigate('/imoveis')}>
               Ver todos <ArrowRight size={16} />
             </Button>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {MOCK_PROPERTIES.map((prop) => (
               <PropertyCard key={prop.id} {...prop} />
             ))}
@@ -160,13 +162,13 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-primary text-primary-foreground">
+      <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-8">Quer vender em Caxias?</h2>
-          <p className="text-xl text-primary-foreground/80 mb-12 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-black mb-6">Quer vender em Caxias?</h2>
+          <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto px-4">
             Anuncie com quem domina o mercado local e venda seu imóvel pelo valor justo e com rapidez.
           </p>
-          <Button size="lg" variant="secondary" className="rounded-full px-12 h-16 text-lg font-bold" onClick={() => showSuccess("Iniciando processo de anúncio...")}>
+          <Button size="lg" variant="secondary" className="rounded-full px-10 h-16 text-lg font-bold w-full md:w-auto" onClick={() => showSuccess("Iniciando processo de anúncio...")}>
             Falar com Thiago Lopes
           </Button>
         </div>
